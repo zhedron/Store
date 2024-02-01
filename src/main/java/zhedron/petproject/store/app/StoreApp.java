@@ -31,11 +31,11 @@ public class StoreApp implements CommandLineRunner {
 
         storeRepository.save(store);
 
-        for (Store stores : storeRepository.findAll()) {
+        List<Store> storeList = storeRepository.findAll();
+
+        for (Store stores : storeList) {
             System.out.println(stores.toString());
         }
-
-        List<Store> storeList = storeRepository.findAll();
 
         storeList.sort(Comparator.comparingInt(Store::getPrice));
 
